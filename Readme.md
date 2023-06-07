@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Марина Ким](https://up.htmlacademy.ru/javascript/29/user/2287759).
-* Наставник: `Неизвестно`.
+* Наставник: [Егор Глебов](https://htmlacademy.ru/profile/beast).
 
 ---
 
