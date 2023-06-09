@@ -9,6 +9,7 @@ function comparison(){
 comparison(string.length, maxlength);
 let stringCompressed = string.replaceAll(" ", "");
 let stringUp = stringCompressed.toUpperCase();
+function isItPalindrome(){
 let newString = "";
 for(let i=(stringUp.length-1); i>=0; i--){
 newString = newString + stringUp[i];
@@ -20,5 +21,5 @@ if(newString === stringUp)
 else{
     alert("Это НЕ палиндром");
   }
-
-
+}
+isItPalindrome(stringUp);
