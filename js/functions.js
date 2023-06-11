@@ -30,7 +30,8 @@ function numberInString(){
   for(let i=0; i<=(stringUp.length-1); i++){
     switch(stringUp[i]){
       case "0":
-      number=number + stringUp[i];
+        if(number!=""){
+      number=number + stringUp[i];}
       break;
       case "1":
       number=number + stringUp[i];
