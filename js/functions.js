@@ -7,6 +7,7 @@ function comparison(){
   else {alert("Длина строки больше максимальной");}
 }
 comparison(string.length, maxlength);
+
 let stringCompressed = string.replaceAll(" ", "");
 let stringUp = stringCompressed.toUpperCase();
 function isItPalindrome(){
@@ -23,3 +24,49 @@ else{
   }
 }
 isItPalindrome(stringUp);
+
+function numberInString(){
+  let number="";
+  for(let i=0; i<=(stringUp.length-1); i++){
+    switch(stringUp[i]){
+      case "0":
+      number=number + stringUp[i];
+      break;
+      case "1":
+      number=number + stringUp[i];
+      break;
+      case "2":
+      number=number + stringUp[i];
+      break;
+      case "3":
+      number=number + stringUp[i];
+      break;
+      case "4":
+      number=number + stringUp[i];
+      break;
+      case "5":
+      number=number + stringUp[i];
+      break;
+      case "6":
+      number=number + stringUp[i];
+      break;
+      case "7":
+      number=number + stringUp[i];
+      break;
+      case "8":
+      number=number + stringUp[i];
+      break;
+      case "9":
+      number=number + stringUp[i];
+      break;
+      default: break;
+  }
+  }
+  if(number==""){
+    alert("В строке нет чисел");
+  }
+  else{
+    alert(number);
+  }
+}
+numberInString(stringUp);
