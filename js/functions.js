@@ -1,6 +1,6 @@
 
 const comparison = (string, maxlength) =>string.length <= maxlength;
-console.log(comparison('just like that', 57));
+
 
 const isItPalindrome = (string)=>{
   const stringCompressed = string.replaceAll(' ', '');
@@ -11,5 +11,5 @@ const isItPalindrome = (string)=>{
   }
   return stringUp === newString;
 };
-console.log(isItPalindrome('asdffdjsa'));
+
 
