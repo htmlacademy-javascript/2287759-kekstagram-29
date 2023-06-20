@@ -68,19 +68,38 @@ const NAME = [
 ];
 
 
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
+function getRandomInteger (min, max) {
+  const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
+  const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
   const result = Math.random() * (upper - lower + 1) + lower;
+
   return Math.floor(result);
-};
+}
+
+function createRandomIdFromRangeGenerator (min, max) {
+  const previousValues = [];
+
+  return function () {
+    let currentValue = getRandomInteger(min, max);
+    if (previousValues.length >= (max - min + 1)) {
+      return currentValue++ ;
+    }
+    while (previousValues.includes(currentValue)) {
+      currentValue = getRandomInteger(min, max);
+    }
+    previousValues.push(currentValue);
+    return currentValue;
+  };
+}
+const generatePhotoId = createRandomIdFromRangeGenerator(1, 25);
+const generateMessageId = createRandomIdFromRangeGenerator(1, 30);
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-//сщздается объект-комментарий
+//создается объект-комментарий
 const createMessage = () => (
   {
-    id: getRandomInteger(1,30),
+    id: generateMessageId(),
     avatar: `img/avatar-${ getRandomInteger(1,6) }.svg`,
     message: getRandomArrayElement(MESSAGE),
     name: `${getRandomArrayElement(NAME)}`,
@@ -90,7 +109,7 @@ const createMessage = () => (
 //создается объект-фотография
 const createPhotos = () => (
   {
-    id: getRandomInteger(1,25),
+    id: generatePhotoId(),
     url: `photos/${ getRandomInteger(1,25) }.jpg`,
     likes: getRandomInteger(15,200),
     description: getRandomArrayElement(DESCRIPTION),
@@ -100,6 +119,4 @@ const createPhotos = () => (
 
 const photosCount = 25;
 const photos = Array.from({length: photosCount}, createPhotos);
-
-console.log(photos);
 
