@@ -12,7 +12,7 @@ export function createRandomIdFromRangeGenerator (min, max) {
   return function () {
     let currentValue = getRandomInteger(min, max);
     if (previousValues.length >= (max - min + 1)) {
-      return currentValue++ ;
+      return currentValue++;
     }
     while (previousValues.includes(currentValue)) {
       currentValue = getRandomInteger(min, max);
