@@ -98,4 +98,4 @@ const createPhotos = () => (
 
 const photosCount = 25;
 const photos = Array.from({length: photosCount}, createPhotos);
-
+console.log(photos);
