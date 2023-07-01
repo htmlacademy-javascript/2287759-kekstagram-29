@@ -95,7 +95,6 @@ const createPhotos = () => (
     comments: Array.from({length:getRandomInteger(1,30)}, createMessage),
   }
 );
-
 const photosCount = 25;
-const photos = Array.from({length: photosCount}, createPhotos);
-console.log(photos);
+export const photos = Array.from({length: photosCount}, createPhotos);
+

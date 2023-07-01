@@ -1,2 +1,4 @@
 import './data.js';
-import './functions.js';
+import './data.js';
+import './pictures.js';
+
