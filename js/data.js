@@ -86,7 +86,7 @@ const createMessage = () => (
 );
 
 //создается объект-фотография
-const createPhotos = () => (
+export const createPhotos = () => (
   {
     id: generatePhotoId(),
     url: `photos/${ getRandomInteger(1,25) }.jpg`,
@@ -95,6 +95,5 @@ const createPhotos = () => (
     comments: Array.from({length:getRandomInteger(1,30)}, createMessage),
   }
 );
-const photosCount = 25;
-export const photos = Array.from({length: photosCount}, createPhotos);
+
 
