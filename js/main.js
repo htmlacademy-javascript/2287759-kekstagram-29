@@ -1,2 +1,5 @@
 import './data.js';
-import './functions.js';
+import './data.js';
+import {renderingPhotos} from'./pictures.js';
+renderingPhotos();
+
