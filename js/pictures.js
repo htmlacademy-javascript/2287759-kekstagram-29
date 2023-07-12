@@ -1,5 +1,6 @@
-import { modalClose, modalOpen} from './big-picture.js';
+import { modalClose, modalOpen} from './open-close.js';
 import { createPhotos } from './data.js';
+import { renderComments } from './comments.js';
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const container = document.querySelector('.pictures');
 const fragment = document.createDocumentFragment();
@@ -14,17 +15,23 @@ export function renderingPhotos(){
     picture.querySelector('.picture__comments').textContent = comments.length;
     picture.addEventListener('click', () =>{
       modalOpen();
+      renderComments(comments);
       const bigPicture = document.querySelector('.big-picture');
       bigPicture.querySelector('.big-picture__img img').src = url;
       bigPicture.querySelector('.big-picture__img img').alt = description;
       bigPicture.querySelector('.social__caption').textContent = description;
       bigPicture.querySelector('.likes-count').textContent = likes;
-      bigPicture.querySelector('.comments-count')=comments.textContent;
-                        });
+      bigPicture.querySelector('.comments-count') = comments.textContent;
+                                        });
     fragment.appendChild(picture);
-  });
+     });
   container.append(fragment);
-    }
-
-
+        }
+    document.querySelector('.big-picture__cancel').addEventListener('click', modalClose);
+    document.addEventListener('keydown',(evt)=>{
+if (evt.key=== 'Escape'){
+  evt.preventDefault();
+  modalClose();
+}
+    });
 

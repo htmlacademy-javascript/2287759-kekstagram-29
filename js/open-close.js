@@ -8,3 +8,4 @@ export function modalClose (){
   document.querySelector('body').classList.remove('modal-open');
 }
 
+
