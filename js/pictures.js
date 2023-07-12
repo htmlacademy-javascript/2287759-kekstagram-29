@@ -27,11 +27,5 @@ export function renderingPhotos(){
      });
   container.append(fragment);
         }
-    document.querySelector('.big-picture__cancel').addEventListener('click', modalClose);
-    document.addEventListener('keydown',(evt)=>{
-if (evt.key=== 'Escape'){
-  evt.preventDefault();
-  modalClose();
-}
-    });
+   
 
