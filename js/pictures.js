@@ -21,11 +21,11 @@ export function renderingPhotos(){
       bigPicture.querySelector('.big-picture__img img').alt = description;
       bigPicture.querySelector('.social__caption').textContent = description;
       bigPicture.querySelector('.likes-count').textContent = likes;
-      bigPicture.querySelector('.comments-count') = comments.textContent;
+      bigPicture.querySelector('.comments-count').textContent = comments.length;
                                         });
     fragment.appendChild(picture);
      });
   container.append(fragment);
         }
-   
+
 
