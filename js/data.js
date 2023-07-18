@@ -89,7 +89,7 @@ const createMessage = () => (
 export const createPhotos = () => (
   {
     id: generatePhotoId(),
-    url: `photos/${ getRandomInteger(1,25) }.jpg`,
+    url: `photos/${getRandomInteger(1,25)}.jpg`,
     likes: getRandomInteger(15,200),
     description: getRandomArrayElement(DESCRIPTION),
     comments: Array.from({length:getRandomInteger(1,30)}, createMessage),

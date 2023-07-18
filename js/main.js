@@ -1,5 +1,6 @@
 import './data.js';
-import './data.js';
-import {renderingPhotos} from'./pictures.js';
+import './pictures.js';
+import './open-close.js';
+import { renderingPhotos } from './pictures.js';
 renderingPhotos();
 
