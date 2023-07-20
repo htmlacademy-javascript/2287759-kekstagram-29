@@ -27,6 +27,7 @@ const DESCRIPTION = [
   'descritpion24',
   'descritpion25',
 ];
+
 const MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -72,7 +73,6 @@ const NAME = [
 
 const generatePhotoId = createRandomIdFromRangeGenerator(1, 25);
 const generateMessageId = createRandomIdFromRangeGenerator(1, 30);
-
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
 //создается объект-комментарий

@@ -1,6 +1,5 @@
-const isEscapeKey = (evt) => evt.key === 'Escape';
-
 const onDocumentKeydown = (evt) => {
+  const isEscapeKey = (evt) => evt.key === 'Escape';
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     modalClose();

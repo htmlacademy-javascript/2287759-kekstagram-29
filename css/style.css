@@ -1408,3 +1408,8 @@ main {
 .hidden {
   display: none;
 }
+.img-upload__field-wrapper--error{
+  color:red;
+  font-weight: 700;
+}
+
