@@ -1,4 +1,4 @@
-import { modalClose, modalOpen} from './open-close.js';
+import {modalOpen} from './open-close.js';
 import { createPhotos } from './data.js';
 import { renderComments } from './comments.js';
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -22,10 +22,10 @@ export function renderingPhotos(){
       bigPicture.querySelector('.social__caption').textContent = description;
       bigPicture.querySelector('.likes-count').textContent = likes;
       bigPicture.querySelector('.comments-count').textContent = comments.length;
-                                        });
+    });
     fragment.appendChild(picture);
-     });
+  });
   container.append(fragment);
-        }
+}
 
 
