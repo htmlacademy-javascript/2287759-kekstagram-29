@@ -1,3 +1,4 @@
+import { resetScale } from './scale-image.js';
 const imgUploadInput = document.querySelector('.img-upload__input');
 const imgUploadCancel = document.querySelector('.img-upload__cancel');
 const form = document.querySelector('.img-upload__form');
@@ -58,7 +59,7 @@ const isTextFieldFocused = ()=>
 document.activeElement === document.querySelector('.text__description');
 
 const onDocumentKeydown = (evt) => {
-  const isEscapeKey = (evt) => evt.key === 'Escape' && !isTextFieldFocused();
+  const isEscapeKey = () => evt.key === 'Escape' && !isTextFieldFocused();
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeForm();
@@ -66,6 +67,7 @@ const onDocumentKeydown = (evt) => {
 };
 
 function closeForm(){
+  resetScale();
   pristine.reset();
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
