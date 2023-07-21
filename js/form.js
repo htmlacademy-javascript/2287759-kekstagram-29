@@ -73,7 +73,6 @@ function closeForm(){
   imgUploadInput.value = '';
 }
 
-
 const imageEditingForm = ()=>{
   pristine.reset();
   form.reset();
