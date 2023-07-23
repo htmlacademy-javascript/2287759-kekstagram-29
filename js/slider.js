@@ -7,6 +7,7 @@ const phobosElement = document.querySelector('#effect-phobos');
 const heatElement = document.querySelector('#effect-heat');
 const originElement = document.querySelector('#effect-none');
 const imgUploadPreview = document.querySelector('.img-upload__preview img');
+const imgUploadEffects = document.querySelector('.img-upload__effects');
 
 noUiSlider.create(sliderElement, {
   range: {
@@ -17,14 +18,11 @@ noUiSlider.create(sliderElement, {
   step: 10,
   connect: 'lower',
 });
-originElement.addEventListener('click', () =>{
-  document.querySelector('.img-upload__effect-level').classList.add('hidden');
-  imgUploadPreview.style.filter = 'none';
-});
 
-chromeElement.addEventListener('change', (evt) => {
+
+imgUploadEffects.addEventListener('click', (evt) =>{
   document.querySelector('.img-upload__effect-level').classList.remove('hidden');
-  if (evt.target.checked) {
+  if(evt.target === chromeElement){
     sliderElement.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -38,11 +36,8 @@ chromeElement.addEventListener('change', (evt) => {
       imgUploadPreview.style.filter = `grayscale(${valueElement.value})`;
     });
   }
-});
 
-sepiaElement.addEventListener('change', (evt) => {
-  document.querySelector('.img-upload__effect-level').classList.remove('hidden');
-  if (evt.target.checked) {
+  if(evt.target === sepiaElement){
     sliderElement.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -56,11 +51,8 @@ sepiaElement.addEventListener('change', (evt) => {
       imgUploadPreview.style.filter = `sepia(${valueElement.value})`;
     });
   }
-});
 
-marvinElement.addEventListener('change', (evt) => {
-  document.querySelector('.img-upload__effect-level').classList.remove('hidden');
-  if (evt.target.checked) {
+  if(evt.target === marvinElement){
     sliderElement.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -74,11 +66,8 @@ marvinElement.addEventListener('change', (evt) => {
       imgUploadPreview.style.filter = `invert(${valueElement.value}%)`;
     });
   }
-});
 
-phobosElement.addEventListener('change', (evt) => {
-  document.querySelector('.img-upload__effect-level').classList.remove('hidden');
-  if (evt.target.checked) {
+  if(evt.target === phobosElement){
     sliderElement.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -92,11 +81,8 @@ phobosElement.addEventListener('change', (evt) => {
       imgUploadPreview.style.filter = `blur(${valueElement.value}px)`;
     });
   }
-});
 
-heatElement.addEventListener('change', (evt) => {
-  document.querySelector('.img-upload__effect-level').classList.remove('hidden');
-  if (evt.target.checked) {
+  if(evt.target === heatElement){
     sliderElement.noUiSlider.updateOptions({
       range: {
         min: 1,
@@ -110,4 +96,11 @@ heatElement.addEventListener('change', (evt) => {
       imgUploadPreview.style.filter = `brightness(${valueElement.value})`;
     });
   }
+
+  if(evt.target === originElement){
+    document.querySelector('.img-upload__effect-level').classList.add('hidden');
+    imgUploadPreview.style.filter = 'none';
+  }
 });
+
+

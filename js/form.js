@@ -3,7 +3,7 @@ const imgUploadInput = document.querySelector('.img-upload__input');
 const imgUploadCancel = document.querySelector('.img-upload__cancel');
 const form = document.querySelector('.img-upload__form');
 const hashtagField = form.querySelector('.text__hashtags');
-
+const imgUploadPreview = document.querySelector('.img-upload__preview img');
 const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent:'img-upload__field-wrapper',
@@ -73,11 +73,13 @@ function closeForm(){
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
   imgUploadInput.value = '';
+  imgUploadPreview.style.filter = 'none';
 }
 
 const imageEditingForm = ()=>{
   pristine.reset();
   form.reset();
+  document.querySelector('.img-upload__effect-level').classList.add('hidden');
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
   imgUploadCancel.addEventListener('click', closeForm);
