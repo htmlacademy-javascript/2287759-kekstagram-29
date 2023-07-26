@@ -1,3 +1,4 @@
+import { postData } from './api.js';
 import { resetScale } from './scale-image.js';
 const imgUploadInput = document.querySelector('.img-upload__input');
 const imgUploadCancel = document.querySelector('.img-upload__cancel');
@@ -91,7 +92,10 @@ imgUploadInput.addEventListener('change', imageEditingForm);
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
-  pristine.validate();
+  const isValid = pristine.validate();
+  if (isValid) {
+    postData();
+  }
 };
 form.addEventListener('submit', onFormSubmit);
 
