@@ -75,11 +75,11 @@ function closeForm(){
   document.removeEventListener('keydown', onDocumentKeydown);
   imgUploadInput.value = '';
   imgUploadPreview.style.filter = 'none';
+  form.reset();
 }
 
-const imageEditingForm = ()=>{
+export const imageEditingForm = ()=>{
   pristine.reset();
-  form.reset();
   document.querySelector('.img-upload__effect-level').classList.add('hidden');
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
@@ -95,6 +95,7 @@ const onFormSubmit = (evt) => {
   const isValid = pristine.validate();
   if (isValid) {
     postData();
+    closeForm();
   }
 };
 form.addEventListener('submit', onFormSubmit);
