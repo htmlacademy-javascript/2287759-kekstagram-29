@@ -6,10 +6,10 @@ fetch('https://29.javascript.pages.academy/kekstagram/data')
   .then((response) => response.json())
   .then((data) => renderingPhotos(data));
 
-export function postData() {
+export function postData(successCb) {
   const form = document.querySelector('.img-upload__form');
   const formData = new FormData(form);
-  fetch('https://29.javascript.pages.academy/kekstagra',
+  fetch('https://29.javascript.pages.academy/kekstagram',
     {
       method: 'POST',
       body: formData,
@@ -17,7 +17,7 @@ export function postData() {
   ).then((response)=>response.json())
     .then(()=>{
       showSuccessMessage();
-      closeForm();
+      successCb();
     })
     .catch(() => {
       showErrorMessage();

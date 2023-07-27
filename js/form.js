@@ -94,7 +94,7 @@ const onFormSubmit = (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (isValid) {
-    postData();
+    postData(closeForm);
   }
 };
 form.addEventListener('submit', onFormSubmit);
