@@ -1,3 +1,4 @@
+import { postData } from './api.js';
 import { resetScale } from './scale-image.js';
 const imgUploadInput = document.querySelector('.img-upload__input');
 const imgUploadCancel = document.querySelector('.img-upload__cancel');
@@ -66,7 +67,7 @@ const onDocumentKeydown = (evt) => {
   }
 };
 
-function closeForm(){
+export function closeForm(){
   resetScale();
   pristine.reset();
   document.querySelector('.img-upload__overlay').classList.add('hidden');
@@ -74,11 +75,11 @@ function closeForm(){
   document.removeEventListener('keydown', onDocumentKeydown);
   imgUploadInput.value = '';
   imgUploadPreview.style.filter = 'none';
+  form.reset();
 }
 
-const imageEditingForm = ()=>{
+export const imageEditingForm = ()=>{
   pristine.reset();
-  form.reset();
   document.querySelector('.img-upload__effect-level').classList.add('hidden');
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
@@ -91,7 +92,10 @@ imgUploadInput.addEventListener('change', imageEditingForm);
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
-  pristine.validate();
+  const isValid = pristine.validate();
+  if (isValid) {
+    postData(closeForm);
+  }
 };
 form.addEventListener('submit', onFormSubmit);
 

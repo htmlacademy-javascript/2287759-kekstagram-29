@@ -1,4 +1,4 @@
-const onDocumentKeydown = (evt) => {
+export const onDocumentKeydown = (evt) => {
   const isEscapeKey = () => evt.key === 'Escape';
   if (isEscapeKey(evt)) {
     evt.preventDefault();
