@@ -67,7 +67,7 @@ const onDocumentKeydown = (evt) => {
   }
 };
 
-function closeForm(){
+export function closeForm(){
   resetScale();
   pristine.reset();
   document.querySelector('.img-upload__overlay').classList.add('hidden');
@@ -95,7 +95,6 @@ const onFormSubmit = (evt) => {
   const isValid = pristine.validate();
   if (isValid) {
     postData();
-    closeForm();
   }
 };
 form.addEventListener('submit', onFormSubmit);
