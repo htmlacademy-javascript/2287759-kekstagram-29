@@ -1,10 +1,10 @@
-import { renderingPhotos } from './pictures.js';
 import { showErrorMessage, showSuccessMessage } from './error-message.js';
-import { closeForm } from './form.js';
 
-fetch('https://29.javascript.pages.academy/kekstagram/data')
-  .then((response) => response.json())
-  .then((data) => renderingPhotos(data));
+export function getData(cb){
+  fetch('https://29.javascript.pages.academy/kekstagram/data')
+    .then((response) => response.json())
+    .then((data) => cb(data));
+}
 
 export function postData(successCb) {
   const form = document.querySelector('.img-upload__form');

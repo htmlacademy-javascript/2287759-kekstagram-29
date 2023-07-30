@@ -1,5 +1,5 @@
 import {modalOpen} from './open-close.js';
-import { renderComments} from './comments.js';
+import { renderComments, showMoreComments} from './comments.js';
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const container = document.querySelector('.pictures');
 const fragment = document.createDocumentFragment();
@@ -20,10 +20,10 @@ export function renderingPhotos(data){
       bigPicture.querySelector('.likes-count').textContent = likes;
       bigPicture.querySelector('.comments-count').textContent = comments.length;
       renderComments(comments);
+      showMoreComments();
     });
     fragment.appendChild(picture);
   });
-
   container.append(fragment);
 }
 

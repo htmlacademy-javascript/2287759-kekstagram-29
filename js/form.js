@@ -90,7 +90,7 @@ export const imageEditingForm = ()=>{
 imgUploadInput.addEventListener('change', imageEditingForm);
 
 
-const onFormSubmit = (evt) => {
+export const onFormSubmit = (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (isValid) {
