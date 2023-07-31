@@ -7,8 +7,8 @@ import './api.js';
 import './error-message.js';
 import './photo.js';
 import { getData } from './api.js';
-import { renderingPhotos } from './pictures.js';
+import { filteredPhotos } from './filter-sort.js';
 
 
-getData(renderingPhotos);
+getData(filteredPhotos);
 
