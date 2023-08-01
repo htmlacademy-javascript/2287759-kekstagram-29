@@ -5,6 +5,9 @@ const container = document.querySelector('.pictures');
 const fragment = document.createDocumentFragment();
 
 export function renderingPhotos(data){
+  const center = document.querySelector('.img-upload');
+  document.querySelector('.pictures').innerHTML = '';
+
   data.forEach(({ url, description, likes, comments }) => {
     const picture = pictureTemplate.cloneNode(true);
     picture.querySelector('.picture__img').src = url;
@@ -22,12 +25,12 @@ export function renderingPhotos(data){
         resetComments();
         modalClose();
       });
-
       showMoreComments(comments);
     });
     fragment.appendChild(picture);
   });
   container.append(fragment);
+  container.append(center);
 }
 
 

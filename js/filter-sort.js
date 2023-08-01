@@ -14,13 +14,14 @@ const sortByComments = (pictureA, pictureB) =>
 export function filteredPhotos(data) {
   filterElement.classList.remove('img-filters--inactive');
   copyArray = data.slice();
-  renderingPhotos(copyArray);
+  renderingPhotos(data);
+
 
   defaultFilterButton.addEventListener('click', () =>{
     randomFilterButton.classList.remove('img-filters__button--active');
     discussedFilterButton.classList.remove('img-filters__button--active');
     defaultFilterButton.classList.add('img-filters__button--active');
-    renderingPhotos(copyArray);
+    renderingPhotos(data);
   });
 
   discussedFilterButton.addEventListener('click', () =>{
