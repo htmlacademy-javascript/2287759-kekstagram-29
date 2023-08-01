@@ -18,8 +18,12 @@ export function filteredPhotos(data) {
   renderingPhotos(data);
 
   function filterDefault(){
-    randomFilterButton.classList.remove('img-filters__button--active');
-    discussedFilterButton.classList.remove('img-filters__button--active');
+    if(randomFilterButton.classList.contains('img-filters__button--active')) {
+      randomFilterButton.classList.remove('img-filters__button--active');
+    }
+    if(discussedFilterButton.classList.contains('img-filters__button--active')){
+      discussedFilterButton.classList.remove('img-filters__button--active');
+    }
     defaultFilterButton.classList.add('img-filters__button--active');
     renderingPhotos(data);
   }
@@ -27,8 +31,12 @@ export function filteredPhotos(data) {
 
 
   function filterDiscussed(){
-    defaultFilterButton.classList.remove('img-filters__button--active');
-    randomFilterButton.classList.remove('img-filters__button--active');
+    if(defaultFilterButton.classList.contains('img-filters__button--active')){
+      defaultFilterButton.classList.remove('img-filters__button--active');
+    }
+    if(randomFilterButton.classList.contains('img-filters__button--active')){
+      randomFilterButton.classList.remove('img-filters__button--active');
+    }
     discussedFilterButton.classList.add('img-filters__button--active');
     const sorted = copyArray.sort(sortByComments);
     renderingPhotos(sorted);
@@ -36,8 +44,12 @@ export function filteredPhotos(data) {
   discussedFilterButton.addEventListener('click', debounce(filterDiscussed, 500));
 
   function filterRandom(){
-    defaultFilterButton.classList.remove('img-filters__button--active');
-    discussedFilterButton.classList.remove('img-filters__button--active');
+    if(defaultFilterButton.classList.contains('img-filters__button--active')){
+      defaultFilterButton.classList.remove('img-filters__button--active');
+    }
+    if(discussedFilterButton.classList.contains('img-filters__button--active')){
+      discussedFilterButton.classList.remove('img-filters__button--active');
+    }
     randomFilterButton.classList.add('img-filters__button--active');
     const randomArray = copyArray.sort(sortRandomly).slice(0, PICTURES_COUNT);
     renderingPhotos(randomArray);
