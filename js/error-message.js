@@ -1,3 +1,4 @@
+import { closeFormByEsc } from './form.js';
 
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 const errorMessage = document.querySelector('#error').content.querySelector('.error');
@@ -16,6 +17,7 @@ function hideMessage() {
   messageElement.remove();
   document.removeEventListener('keydown', onDocumentKeydown);
   body.removeEventListener('click', hideMessage);
+  document.addEventListener('keydown', closeFormByEsc);
 }
 
 
@@ -26,6 +28,7 @@ function onBodyClick() {
 
 const showMessage = (messageElement, closeButtonClass) => {
   body.append(messageElement);
+  document.removeEventListener('keydown', closeFormByEsc);
   document.addEventListener('keydown', onDocumentKeydown);
   body.addEventListener('click', onBodyClick);
   messageElement.querySelector(closeButtonClass).addEventListener('click', hideMessage);

@@ -20,6 +20,7 @@ export const renderComments = () => {
   if(commentsShown > commentsAll){
     commentsShown = commentsAll;
     document.querySelector('.social__comment-count').textContent = `${commentsShown} из ${commentsAll} комментариев`;
+    document.querySelector('.social__comments-loader').classList.add('hidden');
   }
 };
 
@@ -35,6 +36,7 @@ export function showMoreComments(comments){
   } else {
     commentsShown = commentsAll;
     document.querySelector('.social__comment-count').textContent = `${commentsShown} из ${commentsAll} комментариев`;
+    document.querySelector('.social__comments-loader').classList.add('hidden');
   }
   renderComments();
 }

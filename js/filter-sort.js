@@ -1,7 +1,7 @@
 import { renderingPhotos } from './pictures.js';
 import { debounce } from './util.js';
 const PICTURES_COUNT = 10;
-let copyArray = [];
+let copiesArray = [];
 const filterElement = document.querySelector('.img-filters');
 const defaultFilterButton = document.querySelector('#filter-default');
 const randomFilterButton = document.querySelector('#filter-random');
@@ -13,8 +13,10 @@ const sortByComments = (pictureA, pictureB) =>
   pictureB.comments.length - pictureA.comments.length;
 
 export function filteredPhotos(data) {
-  filterElement.classList.remove('img-filters--inactive');
-  copyArray = data.slice();
+  if(data !== 0){
+    filterElement.classList.remove('img-filters--inactive');
+  }
+  copiesArray = data.slice();
   renderingPhotos(data);
 
   function filterDefault(){
@@ -38,7 +40,7 @@ export function filteredPhotos(data) {
       randomFilterButton.classList.remove('img-filters__button--active');
     }
     discussedFilterButton.classList.add('img-filters__button--active');
-    const sorted = copyArray.sort(sortByComments);
+    const sorted = copiesArray.sort(sortByComments);
     renderingPhotos(sorted);
   }
   discussedFilterButton.addEventListener('click', debounce(filterDiscussed, 500));
@@ -51,7 +53,7 @@ export function filteredPhotos(data) {
       discussedFilterButton.classList.remove('img-filters__button--active');
     }
     randomFilterButton.classList.add('img-filters__button--active');
-    const randomArray = copyArray.sort(sortRandomly).slice(0, PICTURES_COUNT);
+    const randomArray = copiesArray.sort(sortRandomly).slice(0, PICTURES_COUNT);
     renderingPhotos(randomArray);
   }
   randomFilterButton.addEventListener('click', debounce(filterRandom, 500));
