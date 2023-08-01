@@ -1,9 +1,17 @@
 import { showErrorMessage, showSuccessMessage } from './error-message.js';
 
+function showErrorUploadMessage(){
+
+}
+
+
 export function getData(cb){
   fetch('https://29.javascript.pages.academy/kekstagram/data')
     .then((response) => response.json())
-    .then((data) => cb(data));
+    .then((data) => cb(data))
+    .catch(() => {
+      showErrorUploadMessage();
+    });
 }
 
 export function postData(successCb) {
@@ -22,6 +30,7 @@ export function postData(successCb) {
     .catch(() => {
       showErrorMessage();
     });
+  document.querySelector('.img-upload__submit').disabled = true;
 }
 
 

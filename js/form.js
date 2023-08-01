@@ -59,7 +59,7 @@ const isTextFieldFocused = ()=>
   document.activeElement === document.querySelector('.text__hashtags') ||
 document.activeElement === document.querySelector('.text__description');
 
-const onDocumentKeydown = (evt) => {
+export const closeFormByEsc = (evt) => {
   const isEscapeKey = () => evt.key === 'Escape' && !isTextFieldFocused();
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -72,7 +72,7 @@ export function closeForm(){
   pristine.reset();
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
-  document.removeEventListener('keydown', onDocumentKeydown);
+  document.removeEventListener('keydown', closeFormByEsc);
   imgUploadInput.value = '';
   imgUploadPreview.style.filter = 'none';
   form.reset();
@@ -80,11 +80,12 @@ export function closeForm(){
 
 export const imageEditingForm = ()=>{
   pristine.reset();
+  document.querySelector('.img-upload__submit').disabled = false;
   document.querySelector('.img-upload__effect-level').classList.add('hidden');
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
   imgUploadCancel.addEventListener('click', closeForm);
-  document.addEventListener('keydown', onDocumentKeydown);
+  document.addEventListener('keydown', closeFormByEsc);
 };
 
 imgUploadInput.addEventListener('change', imageEditingForm);
