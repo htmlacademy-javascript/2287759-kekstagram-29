@@ -21,7 +21,7 @@ export function createRandomIdFromRangeGenerator (min, max) {
   };
 }
 
-export function debounce (callback, timeoutDelay = 500) {
+export function debounce (callback, timeoutDelay) {
   let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);
