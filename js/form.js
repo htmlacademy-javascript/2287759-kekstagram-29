@@ -80,7 +80,6 @@ export function closeForm(){
 
 export const imageEditingForm = ()=>{
   pristine.reset();
-  document.querySelector('.img-upload__submit').disabled = false;
   document.querySelector('.img-upload__effect-level').classList.add('hidden');
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
@@ -95,6 +94,7 @@ export const onFormSubmit = (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (isValid) {
+    document.querySelector('.img-upload__submit').disabled = true;
     postData(closeForm);
   }
 };

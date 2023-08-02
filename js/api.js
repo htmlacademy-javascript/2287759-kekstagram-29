@@ -1,8 +1,4 @@
-import { showErrorMessage, showSuccessMessage } from './error-message.js';
-
-function showErrorUploadMessage(){
-
-}
+import { showErrorMessage, showErrorUploadMessage, showSuccessMessage } from './error-message.js';
 
 
 export function getData(cb){
@@ -29,8 +25,10 @@ export function postData(successCb) {
     })
     .catch(() => {
       showErrorMessage();
+    })
+    .finally(() => {
+      document.querySelector('.img-upload__submit').disabled = false;
     });
-  document.querySelector('.img-upload__submit').disabled = true;
 }
 
 

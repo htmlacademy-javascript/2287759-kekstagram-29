@@ -14,7 +14,7 @@ function onDocumentKeydown(evt) {
 
 function hideMessage() {
   const messageElement = document.querySelector('.success') || document.querySelector('.error');
-  messageElement.remove();
+  messageElement?.remove();
   document.removeEventListener('keydown', onDocumentKeydown);
   body.removeEventListener('click', hideMessage);
   document.addEventListener('keydown', closeFormByEsc);
@@ -42,3 +42,7 @@ export const showSuccessMessage = () => {
   showMessage(successMessage, '.success__button');
 };
 
+export function showErrorUploadMessage(){
+  errorMessage.querySelector('.error__title').textContent = 'Ошибка загрузки данных';
+  showMessage(errorMessage, '.error__button');
+}
