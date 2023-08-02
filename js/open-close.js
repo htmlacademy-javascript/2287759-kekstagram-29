@@ -21,6 +21,10 @@ export function modalClose (){
   document.querySelector('.big-picture').classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
+  document.querySelector('.big-picture__cancel').removeEventListener('click', ()=>{
+    resetComments();
+    modalClose();
+  });
 }
 
 document.querySelector('.big-picture__cancel').addEventListener('click', modalClose);
